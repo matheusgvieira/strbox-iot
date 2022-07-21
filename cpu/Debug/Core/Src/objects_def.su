@@ -1,0 +1,4 @@
+../Core/Src/objects_def.c:11:6:objects_def_init	24	static
+../Core/Src/objects_def.c:23:6:HAL_ADC_ConvCpltCallback	16	static
+../Core/Src/objects_def.c:31:6:objects_def_exti_gpio	16	static
+../Core/Src/objects_def.c:39:6:objects_def_loop	8	static

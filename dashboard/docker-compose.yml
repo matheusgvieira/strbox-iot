@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+
+  broker:
+    image: eclipse-mosquitto
+    volumes:
+      - ./mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log eclipse-mosquitto
+    hostname: mosquitto
+    container_name: mosquitto
+    expose:
+      - "1883"
+      - "9001"
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+
+  node-red:
+    depends_on:
+      - broker
+    image: nodered/node-red:latest
+    volumes:
+      - "./node-red:/data"
+    user: "0"
+    ports:
+      - "1880:1880"
